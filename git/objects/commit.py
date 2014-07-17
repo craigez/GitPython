@@ -435,14 +435,6 @@ class Commit(Diffable, Iterable, RepoAliasMixin, base.Object, Traversable, Seria
         # now we can have the encoding line, or an empty line followed by the optional
         # message.
         self.encoding = self.default_encoding
-        # read encoding or empty line to separate message
-        enc = readline()
-        enc = enc.strip()
-        if enc:
-            self.encoding = enc[enc.find(' ')+1:]
-            # now comes the message separator 
-            readline()
-        # END handle encoding
         
         # decode the authors name
         try:
